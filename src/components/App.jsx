@@ -11,13 +11,19 @@ const App = () => (
 			<Welcome />
 		</header>
 		<p className="App-intro">
-			To get started, edit <code>src/components/App.jsx</code> and save to reload.
+			{'To get started, edit'}
+			<code>
+				{'src/components/App.jsx'}
+			</code>
+			{'and save to reload.'}
 		</p>
 	</div>
 );
 
 const Welcome = () => (
-	<h1 className="App-title">{welcome}</h1>
+	<h1 className="App-title">
+		{welcome}
+	</h1>
 );
 
 export default App;

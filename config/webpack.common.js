@@ -3,13 +3,13 @@
 /* webpack.common.js contains all webpack configuration info that is common to
    all configurations */
 
-const commonPaths = require('./common-paths');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const commonPaths = require('./common-paths');
 
 const config = {
 	entry: {
 		// Split out the vendor module, as its a big boy
-		vendor: ['semantic-ui-react'],
+		vendor: ['react', 'react-dom'],
 	},
 
 	output: {

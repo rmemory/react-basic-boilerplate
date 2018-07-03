@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const commonPaths = require('./common-paths');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const commonPaths = require('./common-paths');
 
 const config = {
 	mode: 'production',
