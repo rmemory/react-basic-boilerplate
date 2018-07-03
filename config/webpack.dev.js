@@ -27,21 +27,23 @@ const config = {
 		rules: [
 			{
 				test: /\.css$/,
-				use: ['style-loader', 'css-loader'],
+				// use: ['style-loader', 'css-loader'],
 
-				// use: [
-				// 	{
-				// 		loader: 'style-loader',
-				// 	},
-				// 	{
-				// 		loader: 'css-loader',
-				// 		options: {
-				// 			modules: true, // { style1, style2 } from ‘./styles.css’)
-				// 			camelCase: true, // .home-button {...} -> import { homeButton } from './styles.css'
-				// 			sourceMap: true,
-				// 		},
-				// 	},
-				// ],
+				use: [
+					{
+						loader: 'style-loader',
+					},
+					{
+						loader: 'css-loader',
+						options: {
+							// CSS modules are disabled by default, but leaving this here
+							// in case it's needed to be set to true.
+							modules: false, // { style1, style2 } from ‘./styles.css’)
+							camelCase: true, // .home-button {...} -> import { homeButton } from './styles.css'
+							sourceMap: true,
+						},
+					},
+				],
 			},
 		],
 	},

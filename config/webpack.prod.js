@@ -22,13 +22,22 @@ const config = {
 		rules: [
 			{
 				test: /\.css$/,
+				/* ExtractTextPlugin moves all the required *.css modules in
+				   entry chunks into a separate CSS file. So your styles are
+				   no longer inlined into the JS bundle, but in a separate
+				   CSS file (styles.css). If your total stylesheet volume is
+				   big, it will be faster because the CSS bundle is loaded in
+				   parallel to the JS bundle. */
 				use: ExtractTextPlugin.extract({
+					/* According to docs for ExtractTextPlugin, style-loader can
+					   Only be a fallback */
 					fallback: 'style-loader',
 					use: [
+						// 'css-loader',
 						{
 							loader: 'css-loader',
 							options: {
-								modules: true,
+								modules: false,
 								importLoaders: 1,
 								camelCase: true,
 								sourceMap: true,
