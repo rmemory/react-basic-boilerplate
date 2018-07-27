@@ -69,4 +69,15 @@ And the config/webpack.prod.js rules might look like this:
 * Initially, I ran into a problem with a 3.x version of extract-text-webpack-plugin,
 and I had to replace it with 4.0.0-beta.0, but I haven't seen that problem lately and 
 am currently happily using version 3.0.2. Seems they have fixed their problems in
-3.x? We'll see. 
+3.x? We'll see.
+
+* There are some pretty decent webpack-react tutorials out there. Here are a couple I found useful:
+
+https://www.valentinog.com/blog/react-webpack-babel/
+
+https://medium.freecodecamp.org/part-1-react-app-from-scratch-using-webpack-4-562b1d231e75
+
+https://esausilva.com/2018/01/13/learn-webpack-for-react/
+
+
+
