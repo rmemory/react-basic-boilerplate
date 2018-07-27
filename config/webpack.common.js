@@ -49,6 +49,17 @@ const config = {
 				use: ['babel-loader'],
 			},
 			{
+				test: /\.(jpg|png)$/,
+				use: {
+					loader: 'file-loader',
+					options: {
+						name: '[path][name].[ext]',
+						context: `${commonPaths.appEntry}/components/images`,
+						outputPath: 'images/',
+					},
+				},
+			},
+			{
 				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
 				use: [{
 					loader: 'file-loader',
@@ -57,16 +68,6 @@ const config = {
 						outputPath: 'fonts/',
 					},
 				}],
-			},
-			{
-				// Not working yet
-				test: /\.(jpg|png)$/,
-				use: {
-					loader: 'file-loader',
-					options: {
-						name: '/images/[hash].[ext]',
-					},
-				},
 			},
 		],
 	},
