@@ -1,4 +1,10 @@
-A basic template to setup a React based project, using Webpack
+A basic template to setup a React based project, using Webpack.
+
+React is built around a few powerful concepts:
+
+* a Virtual DOM, which is held in memory and thus much faster to update
+* the ability to re-render only the piece of page that needs to be reloaded
+* The main selling point of React is: components.
 
 Note on Linux: you *must* run this one-time-only to enable hot module
 replacement:
