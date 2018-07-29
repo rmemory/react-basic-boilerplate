@@ -2,11 +2,13 @@
 
 This project provides a basic template or starting point to setup a React based project, using Webpack. 
 
-I use this as a starting point for all react projects I work on. It provides a much more flexible and extensible replacement of create-react-app (see https://reactjs.org/docs/create-a-new-react-app.html).
+I use this as a starting point for all React based projects I work on. For me, this project provides a flexible and extensible alternative to create-react-app (see https://reactjs.org/docs/create-a-new-react-app.html).
 
-The initial "React application" provided here is pretty much the same thing create-react-app creates by default; or in other words, it's not much more than the React equivalent of Hello World. 
+The initial "React application" provided in this project is pretty much the same thing create-react-app creates by default; or in other words, it's not much more than the React equivalent of Hello World. 
 
-But this project does provide a convenient starting point for most applications. I customize it as I need for whatever project I am working on, and I can control all of the aspects of the project, including the build. I am sure create-react-app is fine for some introductory situations (certainly far smarter people than I created it), but personally I find this a much better starting point. That's just me. I am sure there are plenty of deficiencies to my logic, but it has worked so far.
+In short, this project provides a convenient starting point for most applications. I customize it as I need for whatever project I am working on, and I can control all of the aspects of the project, including the build. I am sure create-react-app is fine for some introductory situations (certainly far smarter people than I created it), but personally I find this a much better starting point. That's just me. I am sure there are plenty of deficiencies to my logic, but it has worked so far.
+
+If you are looking for a total introduction to React, Webpack, web development, Java Script, etc, this is probably not the place. This project assumes you have some knowledge of all of those concepts. I use it for my own purposes, and it works for me.
 
 # A few usage notes
 
@@ -14,7 +16,7 @@ To use this project, you may wish to install the latest npm node_modules (which 
 
 Any of which are typically easy to add, though some might require their own unique Webpack configuration. That part is up to you.
 
-Your mileage might vary depending on the current state of whatever the latest and greatest npm node modules might be as they are always screwing around with in their own api's, breaking things, etc. In which case google is your friend to see if anyone else is running into these problems, and you can commiserate with others on a github issues list for whatever modules happens to have caused the latest problem, as the module developers apologize for or sometimes defend, and in any case usually help sort through the problem. 
+Your mileage might vary depending on the current state of whatever the latest and greatest npm node modules might be as they are always screwing around with in their own api's, breaking things, etc. In which case google is your friend to see if anyone else is running into these problems, and you can commiserate with others on a github issues list for whatever modules happens to have caused the latest problem. The module developers sometimes apologize for or sometimes defend the current state of things, and in any case usually help sort through the problem. And that is why they pay us as developers money: to solve problems.
 
 I run into these kinds situations relatively frequently, and such is life in the world of web development with JS where APIs, modules, libraries and whatnot are being updated continuously. I periodically refresh the package.json in this project with the latest just to see where things are. Sometimes it just works. Sometimes it doesn't. 
  
@@ -50,9 +52,20 @@ $ npm run dev
 
 That should start the application on your local host, by default using PORT=3000. And as you modify the code, the hot module replacement feature should just automatically cause the browser to update as well.
 
+## Deployment
+
+To build a deployment snapshot of your application, run this:
+
+```
+$ npm run build
+```
+And then look in the "dist" directory. You can test the contents of the "dist" directory locally, by using this simple node server:
+
+git@github.com:esausilva/quick-node-server.git
+
 ## Problems with hot module replacement?
 
-If you run into problems getting hot module replacement to recognize changes made to the source code and the contents of the browser are not being dynamically refreshed, and you are on a Linux host, you may need to run this command (one time only).
+If you run into problems getting hot module replacement to recognize changes made to the source code, meaning the contents of the browser are not being dynamically refreshed as you make edits, and you are on a Linux host, you may need to run this command (one time only).
 
 ```
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
@@ -62,17 +75,21 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo s
 
 I am currently using VS Code, looks at the moment it is version 1.25.1, though it is updated frequently. I have also installed the following extensions:
 
+```
 ES7 React/Redux/GraphQL/React-Native snippets by dsznajder
 ESLint by Dirk Baeumer
 And a few others related to git, github, npm, etc, which I won't list here.
+```
 
 ## Chrome Extensions
 
 I mostly use Chrome for my development. I have installed the following Chrome extensions:
 
+```
 React Developer Tools, version 3.2.4
 Redux DevTools, version 2.15.3
 JSON Formatter, version 0.6.0
+```
 
 ## A few more usage notes:
 
@@ -150,6 +167,20 @@ function simpleComponent() {
 }
 ```
 
+Here is an example of possibly the simplest React application:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+function Hello() {
+  return <div>Hello World!</div>;
+}
+
+ReactDOM.render(<Hello/>, document.querySelector('#main_react_mount_point'))
+```
+The above will look for an HTML element with an ID of main_react_mount_point, where it will insert the Component and start doing it's virtual DOM magic.
+
 * Here is an example of what a github page **might** look like if it were divided up into React components. The green boxes are an example of what the individual Components might be.
 
 https://www.valentinog.com/blog/wp-content/uploads/2018/05/github-components.jpg
@@ -158,7 +189,7 @@ https://www.valentinog.com/blog/wp-content/uploads/2018/05/github-components.jpg
 
 * JSX is syntax sugar to allow HTML tags to be combined with JS, or more specifically ES6+. Babel does all of the necessary conversion of JSX back to regular ES6 (or ES5 as necessary).
 
-* Contrasted to frameworks like Angular, React does not contain any control directives for conditionals or looping. Instead, it relies entirely on regular old JS syntax (such as array map, filter, etc) to do this.
+* Contrasted to frameworks like Angular, React does not contain any control directives for conditionals or looping. Instead, it relies entirely on regular old JS syntax (such as array map, filter, etc) to do this. In other words, you won't find ng-if, ng-repeat, etc in React.
 
 * Props are the API for (ie. way to pass data) to each component. Prop-types are the mechanism to provide type safety for the API. 
 
@@ -237,4 +268,8 @@ If you wish to use regular functions, you'll need to perform the bind to "this" 
 
 ```
 
-* Webpack is the mechanism that wraps around the whole thing from a "build perspective". It handles the module bundling, transpiling, configuration details, makes development easier with a web development server, determines how assets are bundled, CSS compilation, deployment etc. 
+* Webpack is the mechanism that wraps around the whole thing from a "build perspective". It handles the module bundling, transpiling, configuration details, makes development easier with a web development server, determines how assets are bundled, CSS compilation, deployment etc. I have heavily commented the webpack files. You can refer to those for more details.
+
+# Credits
+
+I gathered the information to pull all of this together from various places, far too many to count, nor do I even know where to start to give individual credit. If you feel you need credit, let me know.
