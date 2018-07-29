@@ -144,6 +144,10 @@ https://medium.freecodecamp.org/part-1-react-app-from-scratch-using-webpack-4-56
 
 https://esausilva.com/2018/01/13/learn-webpack-for-react/
 
+https://survivejs.com/webpack/introduction/ (not specific to React)
+
+https://webpack.academy/ (not specific to React)
+
 
 # General React Notes
 
@@ -273,3 +277,5 @@ If you wish to use regular functions, you'll need to perform the bind to "this" 
 # Credits
 
 I gathered the information to pull all of this together from various places, far too many to count, nor do I even know where to start to give individual credit. If you feel you need credit, let me know.
+
+That said, Easu Silva's blog really helped me get started on the Webpack concepts. His tutorial on Webpack is fantastic. See his blog here: https://esausilva.com/. He based his work on https://webpack.academy/ by Sean Larkin, which is also great. 
