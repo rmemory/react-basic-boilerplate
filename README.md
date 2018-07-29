@@ -1,10 +1,44 @@
-A basic template to setup a React based project, using Webpack.
+A basic template to setup a React based project, using Webpack. I use this as a starting point for all react projects I work on. It provides a much more flexible and extensible replacement of create-react-app (see https://reactjs.org/docs/create-a-new-react-app.html).
+
+The react application here is pretty much the same thing create-react-app creates by default; Not much more than the react equivalent of Hello World. But it provides a convienient starting point for most applications.
+
+Here are some of my own general notes around React.
 
 React is built around a few powerful concepts:
 
-* a Virtual DOM, which is held in memory and thus much faster to update
-* the ability to re-render only the piece of page that needs to be reloaded
-* The main selling point of React is: components.
+* A Virtual DOM, which is held in memory and thus much faster to update.
+
+* It re-renders only the piece(s) of page (DOM elements) that needs to be updated.
+
+* Its not a framework, meaning it isn't an all inclusive, one-stop-shopping mall. For example, if you need HTTP (ie. rest) functionality, then you need something like axios. React doesn't direclty provide separation of concerns into MVC. It pretty much just defines the View aspect and leaves the rest to you. 
+
+* The main selling point of React is: components, which are typically classes (but in the case of statement components might be a simple function). The concept of a component allows the developer to construct their application into logical building blocks (lego blocks?). In complex applications, separate teams can be given their own component to develop, and they are free to develop it as they see fit as long as they maintain a well definied interface. Stated differently: Its object oriented development.
+
+* Minimally, each component must provide a render method which must return the JSX for the component.
+
+* JSX is syntax sugar to allow HTML tags to be combined with JS, or more specifically ES6+. Babel does all of the necessary conversion of JSX back to regular ES6 (or ES5 as necessary).
+
+* Props are the API for (ie. way to pass data) to each component. Prop-types are the mechanism to provide type safety for the API. 
+
+* State holds the state of the application. Yeah, I can't think of a better way to put it than to use that circular definition. State is an object containing other objects that represent the state of the application. It can be set in the constructor or as part of the component, like this:
+
+```
+	state = {
+		myBoolean: true,
+		myNumeric: 0,
+		myString: 'Hello world',
+		myList: [],
+		myObject: {},
+	}
+```
+
+* When modifying state, you can't do it directly. You must use the setState API. This react API does two things. (1) It changes the value of the state, (2) it triggers the re-render operation, which traverses all components (unless one is a "pure" component), and updates everything that needs to be updated. If you directly modify state, the re-render doesn't occur and stuff gets weird quickly.
+
+* If you have data maintained in state displayed in a form, React will not allow you to directly modify it in the form. It requires you to use an onChange API, which is responsible for calling whatever method wraps the setState API to modify the value in state.
+
+* Each component extends React.Component, and thus inherits several methods, render being one. Additionally, there are several lifecycle methods that can be overriden as necessary, such as shouldComponentUpdate, componentDidMount, etc, etc. See: https://reactjs.org/docs/react-component.html
+
+* Webpack is the mechanism that wraps around the whole thing from a "build perspective". It handles the module bundling, transpiling, configuration details, makes development easier with a web development server, determines how assets are bundled, CSS compilation, deployment etc. 
 
 Note on Linux: you *must* run this one-time-only to enable hot module
 replacement:
