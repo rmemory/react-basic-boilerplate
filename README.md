@@ -1,6 +1,6 @@
 # Introduction
 
-This project provides a basic template or starting point to setup a React based project, using Webpack. 
+This project provides a basic template or starting point to setup a React based project, using Webpack 4 (code name: legato ) 
 
 I use this as a starting point for all React based projects I work on. For me, this project provides a flexible and extensible alternative to create-react-app (see https://reactjs.org/docs/create-a-new-react-app.html).
 
@@ -148,6 +148,8 @@ https://survivejs.com/webpack/introduction/ (not specific to React)
 
 https://webpack.academy/ (not specific to React)
 
+https://youtu.be/jUTE7lmrS70 (video by Sean Larkin)
+
 
 # General React Notes
 
@@ -273,6 +275,44 @@ If you wish to use regular functions, you'll need to perform the bind to "this" 
 ```
 
 * Webpack is the mechanism that wraps around the whole thing from a "build perspective". It handles the module bundling, transpiling, configuration details, makes development easier with a web development server, determines how assets are bundled, CSS compilation, deployment etc. I have heavily commented the webpack files. You can refer to those for more details.
+
+# Styling
+
+## Plain old CSS
+
+Here is a simple CSS file example, for example call it app.css:
+
+```
+html, body, #root, .room {
+	height: 100%;
+	margin: 0;
+  }
+  .lit {
+	background-color: white;
+	color: black;
+  }
+  .dark {
+	background-color: black;
+	color: white;
+  }
+```
+
+And here is how it might be used in a React component:
+
+```
+import './app.css';
+
+class MyComponent extends Component {
+	state = {
+		someStateVar: true,
+	}
+
+	render() {
+		const brightness = this.state.someStateVar ? 'lit' : 'dark';
+		return (
+			<div className={`room ${brightness}`}>
+etc ...
+```
 
 # Credits
 
