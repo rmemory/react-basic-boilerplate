@@ -59,9 +59,33 @@ To build a deployment snapshot of your application, run this:
 ```
 $ npm run build
 ```
+But to succeessfully do so, note the problem with extract-text-webpack plugin 3.x described below.
+
 And then look in the "dist" directory. You can test the contents of the "dist" directory locally, by using this simple node server:
 
 git@github.com:esausilva/quick-node-server.git
+
+```
+$ cd <to this project>
+$ npm run build
+$ cd ~
+$ git clone git@github.com:esausilva/quick-node-server.git
+$ cd quick-node-server
+$ cd public
+$ rm -fr *
+$ cp -R <path to this project>/dist/* .
+$ cd ..
+$ node server.js
+```
+By default, it starts a server on the local host on port 3002. Thus, in your browser, enter this address:
+
+```
+http://localhost:3002/
+```
+
+## Bundle analyzers
+
+If you wish, you can also use the bundle analyzer scripts (see the package.json), which provide a graphical view of the relative sizes of all of the modules involved in your application, which can be useful when looking for way to optimize.
 
 ## Problems with hot module replacement?
 
@@ -132,7 +156,13 @@ And the config/webpack.prod.js rules might look like this:
 		],
 ```
 
-* Initially, I ran into a problem with a 3.x version of extract-text-webpack-plugin, and I had to replace it with 4.0.0-beta.0, but I haven't seen that problem lately and am currently happily using version 3.0.2. Seems they have fixed their problems in 3.x? We'll see.
+* I ran into a problem with a 3.x version of extract-text-webpack-plugin. It seems at the moment at least, it hasn't yet been updated for Webpack 4. See: https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/701 
+
+In order to be able to create a production build, I had to replace it with 4.0.0-beta.0.
+
+```
+$ npm install extract-text-webpack-plugin@4.0.0-beta.0
+```
 
 * There are some pretty decent webpack-react tutorials out there. Here are a couple I found useful:
 
