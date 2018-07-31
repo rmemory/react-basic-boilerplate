@@ -27,3 +27,5 @@ componentDidMount() {
     });
 }
 ```
+
+See: https://github.com/rmemory/react-axios-example
