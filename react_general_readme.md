@@ -2,6 +2,106 @@
 
 Here are some of my own general notes around React.
 
+React is based on the following principles:
+
+* Composition or OO - Encapsulation of functionality into its own isolated container with its own state and API (props).
+
+var ProfilePic = function() {
+	return (
+		<img src={'https://photo.fb.com/' + this.props.username'} />
+	)
+}
+
+var ProfileLink = function() {
+	return (
+		<a href={'https://www.fb.com/' + this.props.username>
+			{this.props.username}
+		</a>
+	)
+}
+
+var Avatar = function() {
+	return (
+		<div>
+			<ProfilePic username={this.props.username} />
+			<ProfileLink username={this.props.username} />
+		</div>
+	)
+}
+
+<Avatar username="richardmemory" />
+
+* Unidirectional data flow
+
+Props are always passed to child components.
+
+In React, UI is a function of state. As the state updates, the UI updates. Basically each app just needs to know how to update state.
+
+this.setState triggers a re-render.
+
+* Imperative and Declarative
+
+With Imperative programming, you are telling your computer explicitly **how** to do something.
+
+var numbers = [4,2,3,6]
+var total = 0;
+for (var i = 0; i < numbers.length; i++) {
+		total += numbers[i]
+}
+
+With Declaritive programming, you are telling **what** to do. It usually involves abstractions.
+
+var numbers = [4,2,3,6]
+var total = numbers.reduce(function (previous, current) {
+	return previous + current
+}, 0);
+
+The function in the reduce defines the "what" aspect
+
+Declaritive programming reduces side effects (the total variable isn't continually changing values, and with reduce all modifications occur under the hood so to speak in the function), it minimizes mutability (no chance to overwrite the contents of the numbers array), thus producing fewer bugs.
+
+Here is a declaritive example (state isn't maintained in the DOM):
+<MyButton
+	onClick={this.handleToggleHighlight}
+	hightlight={this.state.highlight}
+/>
+
+But react's setState is imperative (very much a how not a what).
+
+And here is a declaritive way of doubling an array:
+
+```
+const myDoubler = (anArray) => {
+	return anArray.map(element => 
+		{
+			return (element * 2);
+		}
+	);
+}
+```
+
+A declaritive way of doubling an array:
+
+```
+const myAddr = (anArray) => {
+	return anArray.reduce((total, element) => {
+		return (total += element)
+	}, 0);
+}
+```
+
+A declaritive way of using React's state to make a Btn component be delaraitive (note that by using state, its not the "how" but rather the "what")
+
+```
+<Btn
+  onToggleHighlight={this.handleToggleHighlight}
+  highlight={this.state.highlight}>
+    {this.state.buttonText}
+</Btn>
+```
+
+* Just JavaScript. No such thing as ng-repeat.
+
 React is built around a few powerful concepts:
 
 * A Virtual DOM, which is held in memory and thus much faster to update.
@@ -69,8 +169,8 @@ https://www.valentinog.com/blog/wp-content/uploads/2018/05/github-components.jpg
 ```
 import React, { Component } from 'react';
 class MyComponent extends Component {
-    render() {
-    }
+	render() {
+	}
 ```
 
 Additionally, there are several lifecycle methods that can be overridden as necessary, such as shouldComponentUpdate, componentDidMount, etc, etc. See: https://reactjs.org/docs/react-component.html
@@ -81,7 +181,7 @@ Additionally, there are several lifecycle methods that can be overridden as nece
 
 ```
 const MyComponent = (props) => (
-    return <div>stuff</div>
+	return <div>stuff</div>
 );
 ```
 

@@ -8,6 +8,11 @@ The initial "React application" provided in this project is pretty much the same
 
 In short, this project provides a convenient starting point for most applications. I customize it as I need for whatever project I am working on, and I can control all of the aspects of the project, including the build. I am sure create-react-app is fine for some introductory situations (certainly far smarter people than I created it), but personally I find this a much better starting point. That's just me. I am sure there are plenty of deficiencies to my logic, but it has worked so far.
 
+Webpack is a tool which takes an input (in this case src/index.js, and all of the various imports), on a file by file basis, it runs them through the transformations defined in the module-rules (such as bable, css, etc). and creates an output.
+
+Babel transform the modern syntax such as JSX into 
+a version of JS compatible with older browswers.
+
 If you are looking for a total introduction to React, Webpack, web development, Java Script, etc, this is probably not the place. This project assumes you have some knowledge of all of those concepts. I use it for my own purposes, and it works for me.
 
 # A few usage notes
