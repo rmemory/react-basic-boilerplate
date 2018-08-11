@@ -4,6 +4,10 @@ Here are some of my own general notes around React.
 
 React is based on the following principles:
 
+Its "View", not "MVC". But, note that while MVC is good at separating technologies (HTML, CSS, JS), it is not good at separating application logic. This is because despite the separation of technologies, all are still highly coupled.
+
+https://www.slideshare.net/floydophone/react-preso-v2
+
 * Composition or OO - Encapsulation of functionality into its own isolated container with its own state and API (props).
 
 var ProfilePic = function() {

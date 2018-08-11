@@ -13,6 +13,18 @@ Webpack is a tool which takes an input (in this case src/index.js, and all of th
 Babel transform the modern syntax such as JSX into 
 a version of JS compatible with older browswers.
 
+Stated differently: there are really three main steps and three main things webpack needs to know.
+
+1) webpack needs to know the starting point of your application, or your root JavaScript file.
+
+2) webpack needs to know which transformations to make on your code.
+
+3) webpack needs to know to which location it should save the new transformed code.
+
+ If you're not familiar with JavaScript modules, this blog series is great : https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.g9p44q9ly
+
+## disclaimer
+
 If you are looking for a total introduction to React, Webpack, web development, Java Script, etc, this is probably not the place. This project assumes you have some knowledge of all of those concepts. I use it for my own purposes, and it works for me.
 
 # A few usage notes
