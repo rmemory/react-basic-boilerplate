@@ -68,6 +68,23 @@ var newFunc = sayName.bind(sarah); // returns a new function with sarah bound as
 
 newFunc();
 
+The difference between call and apply is that apply lets you pass in an array as the second argument, while call requires that parameters be listed explicitly.
+
+This will print out undefined:
+
+```
+var myUser = { 
+   username: 'richard', 
+   age: 100, 
+   email: 'richard@gmail.com' 
+ }; 
+ var getMyUsername = function(){ 
+   console.log(this.username); 
+ }; 
+ setTimeout(getMyUsername, 3000); 
+ 
+```
+
 # new binding
 
 var Animal = function(color, name, type) {
