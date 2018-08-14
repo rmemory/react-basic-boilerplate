@@ -1,3 +1,18 @@
+# Some links
+
+https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.3tk94s6k0
+
+https://tylermcginnis.com/react-aha-moments/
+
+https://camjackson.net/post/9-things-every-reactjs-beginner-should-know
+
+https://medium.com/@puppybits/the-revolution-of-pure-views-aed339db7da4#.w7rw7zli9
+
+http://www.reactjsnewsletter.com/
+
+http://twitter.com/tylermcginnis
+
+
 # General React Notes
 
 Here are some of my own general notes around React.
